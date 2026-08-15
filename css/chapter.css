@@ -1,413 +1,348 @@
 /* ===========================================
-   CHAPTER ONE
+   CHAPTER INTRO
 =========================================== */
 
 #chapterOne{
-
-    position:fixed;
-    inset:0;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:1.4s ease;
-
-    z-index:5;
-
-    pointer-events:auto;
-
-}
-
-#chapterOne.show{
-
-    opacity:1;
-    visibility:visible;
-
-}
-
-.chapterGlow{
-
-    position:absolute;
-
-    width:700px;
-    height:700px;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-
-        circle,
-
-        rgba(255,220,120,.22),
-
-        transparent 70%
-
-    );
-
-    filter:blur(70px);
-
-}
-
-.chapterNumber{
-
-    color:#caa76a;
-
-    font-size:18px;
-
-    letter-spacing:8px;
-
-    text-transform:uppercase;
-
-    margin-bottom:18px;
-
-    font-family:"Cormorant Garamond", serif;
-
-}
-
-.chapterTitle{
-
-    color:white;
-
-    font-size:72px;
-
-    font-family:"Cormorant Garamond", serif;
-
-    margin:0;
-
-    text-align:center;
-
-}
-
-.chapterSubtitle{
-
-    margin-top:22px;
-
-    color:rgba(255,255,255,.72);
-
-    font-size:22px;
-
-    max-width:700px;
-
-    text-align:center;
-
-    line-height:1.8;
-
-    font-family:"Cormorant Garamond", serif;
-
-}
-/* ==========================
-TITLE ENTRANCE
-========================== */
-
-.chapterNumber,
-.chapterTitle,
-.chapterSubtitle{
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-}
-
-#chapterOne.show .chapterNumber{
-
-    animation:
-        fadeUp .9s ease forwards;
-
-}
-
-#chapterOne.show .chapterTitle{
-
-    animation:
-        fadeUp .9s ease .35s forwards;
-
-}
-
-#chapterOne.show .chapterSubtitle{
-
-    animation:
-        fadeUp .9s ease .75s forwards;
-
-}
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(40px);
-
-        filter:blur(10px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0);
-
-        filter:blur(0);
-
-    }
-
-}
-/* ==========================
-DIVIDER
-========================== */
-
-.chapterDivider{
-
-    width:0;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            rgba(255,220,120,.9),
-            transparent
-        );
-
-    margin:55px auto 22px;
-
-}
-
-#chapterOne.show .chapterDivider{
-
-    animation:
-        dividerGrow 1.2s ease 1.2s forwards;
-
-}
-
-@keyframes dividerGrow{
-
-    to{
-
-        width:320px;
-
-    }
-
-}
-
-/* ==========================
-CONTINUE
-========================== */
-
-.continueHint{
-
-    opacity:0;
-
-    text-align:center;
-
-    color:#d8c28d;
-
-    letter-spacing:4px;
-
-    text-transform:uppercase;
-
-    font-size:13px;
-
-}
-
-#chapterOne.show .continueHint{
-
-    animation:
-        fadeHint 1s ease 2.1s forwards;
-
-}
-
-@keyframes fadeHint{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(12px);
-
-    }
-
-    to{
-
-        opacity:.85;
-
-        transform:translateY(0);
-
-    }
-
-}
-/* ==========================
-MOVE TO STORY
-========================== */
-
-#chapterOne{
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    z-index: 5;
+    pointer-events: auto;
 
     transition:
         transform 2.5s ease,
         opacity 2s ease;
+}
 
+#chapterOne.show{
+    opacity: 1;
+    visibility: visible;
 }
 
 #chapterOne.moveAway{
-
-    transform:
-        translateY(-100vh);
-
-    opacity:0;
-
+    transform: translateY(-100vh);
+    opacity: 0;
 }
+
+.chapterGlow{
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255,220,120,.22),
+        transparent 70%
+    );
+
+    filter: blur(70px);
+}
+
+.chapterNumber{
+    color: #caa76a;
+    font-size: 18px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+
+    font-family: "Cormorant Garamond", serif;
+}
+
+.chapterTitle{
+    color: white;
+    font-size: 72px;
+    margin: 0;
+    text-align: center;
+
+    font-family: "Cormorant Garamond", serif;
+}
+
+.chapterSubtitle{
+    margin-top: 22px;
+
+    color: rgba(255,255,255,.72);
+
+    font-size: 22px;
+    max-width: 700px;
+
+    text-align: center;
+    line-height: 1.8;
+
+    font-family: "Cormorant Garamond", serif;
+}
+
 /* ===========================================
-   STORY SCENE
+   ENTRANCE ANIMATION
+=========================================== */
+
+.chapterNumber,
+.chapterTitle,
+.chapterSubtitle{
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+#chapterOne.show .chapterNumber{
+    animation: fadeUp .9s ease forwards;
+}
+
+#chapterOne.show .chapterTitle{
+    animation: fadeUp .9s ease .35s forwards;
+}
+
+#chapterOne.show .chapterSubtitle{
+    animation: fadeUp .9s ease .75s forwards;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(40px);
+        filter: blur(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* ===========================================
+   DIVIDER
+=========================================== */
+
+.chapterDivider{
+    width: 0;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,220,120,.9),
+        transparent
+    );
+
+    margin: 55px auto 22px;
+}
+
+#chapterOne.show .chapterDivider{
+    animation: dividerGrow 1.2s ease 1.2s forwards;
+}
+
+@keyframes dividerGrow{
+    to{
+        width: 320px;
+    }
+}
+
+/* ===========================================
+   CONTINUE HINT
+=========================================== */
+
+.continueHint{
+    opacity: 0;
+
+    text-align: center;
+
+    color: #d8c28d;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    font-size: 13px;
+}
+
+#chapterOne.show .continueHint{
+    animation: fadeHint 1s ease 2.1s forwards;
+}
+
+@keyframes fadeHint{
+    from{
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to{
+        opacity: .85;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================================
+   CONFESSION PAGE
 =========================================== */
 
 #storyScene{
+    min-height: 100vh;
 
-    min-height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
+    padding: 120px 28px;
 
-    padding:120px 28px;
+    overflow-y: auto;
 
-    overflow-y:auto;
+    opacity: 0;
+    visibility: hidden;
 
-    opacity:0;
-    visibility:hidden;
-
-    transform:translateY(60px);
+    transform: translateY(60px);
 
     transition:
         opacity 1s ease,
         transform 1s ease;
-
 }
 
 #storyScene.show{
-
-    opacity:1;
-    visibility:visible;
-
-    transform:translateY(0);
-
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .storyContainer{
-
-    width:min(760px,92vw);
-
+    width: min(760px, 92vw);
 }
 
-.storyLabel{
+/* ===========================================
+   CONFESSION TITLE
+=========================================== */
 
-    color:#d2b27a;
+.confessionTitle{
+    font-family: "Parisienne", cursive;
 
-    letter-spacing:6px;
+    font-size: 82px;
+    font-weight: 400;
 
-    text-transform:uppercase;
+    color: #F5D39C;
 
-    font-size:14px;
+    text-align: center;
 
-    margin-bottom:12px;
+    margin-bottom: 10px;
 
-}
+    letter-spacing: 1px;
 
-.storyHeading{
-
-    color:white;
-
-    font-size:56px;
-
-    font-family:"Cormorant Garamond",serif;
-
-    margin-bottom:24px;
-
+    text-shadow:
+        0 0 22px rgba(245,211,156,.18);
 }
 
 .storyLine{
+    width: 160px;
+    height: 1px;
 
-    width:120px;
-    height:1px;
+    margin: 0 auto 45px;
 
-    background:linear-gradient(
+    background: linear-gradient(
         to right,
-        #d2b27a,
+        transparent,
+        #D2B27A,
         transparent
     );
-
-    margin-bottom:35px;
-
 }
 
-.storyText{
+/* ===========================================
+   HANDWRITTEN CONTENT
+=========================================== */
 
-    color:#e8e8e8;
-
-    font-size:22px;
-
-    line-height:2;
-
-    white-space:pre-line;
-
-    font-family:"Cormorant Garamond",serif;
-
-}
-
-@media(max-width:768px){
-
-.storyHeading{
-
-    font-size:42px;
-
-}
-
-.storyText{
-
-    font-size:19px;
-
-    line-height:1.8;
-
-}
-
-}
 .storyBody{
-
-    display:flex;
-    flex-direction:column;
-    gap:32px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
 }
+
+.storyBody p{
+    font-family: "Caveat", cursive;
+
+    font-size: 36px;
+
+    line-height: 1.75;
+
+    color: #F3EFE7;
+
+    letter-spacing: .3px;
+}
+
+.finalConfession{
+    color: #FFF5D8;
+    font-size: 42px;
+}
+
+.signatureText{
+    font-family: "Parisienne", cursive;
+
+    font-size: 46px;
+
+    color: #D9BC7C;
+
+    text-align: right;
+
+    margin-top: 12px;
+}
+
+/* ===========================================
+   PARAGRAPH REVEAL
+=========================================== */
 
 .reveal{
+    opacity: 0;
 
-    opacity:0;
+    transform: translateY(40px);
 
-    transform:translateY(40px);
-
-    filter:blur(10px);
+    filter: blur(10px);
 
     transition:
         opacity .9s ease,
         transform .9s ease,
         filter .9s ease;
-
 }
 
 .reveal.show{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
 
-    opacity:1;
+/* ===========================================
+   MOBILE
+=========================================== */
 
-    transform:translateY(0);
+@media (max-width:768px){
 
-    filter:blur(0);
+    .confessionTitle{
+        font-size: 58px;
+    }
 
+    .storyBody p{
+        font-size: 29px;
+        line-height: 1.7;
+    }
+
+    .finalConfession{
+        font-size: 34px;
+    }
+
+    .signatureText{
+        font-size: 38px;
+    }
+
+    .chapterTitle{
+        font-size: 52px;
+    }
+
+    .chapterSubtitle{
+        font-size: 19px;
+    }
+
+    #storyScene{
+        padding: 90px 22px;
+    }
 }
