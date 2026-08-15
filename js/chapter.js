@@ -1,26 +1,22 @@
 const chapter = document.getElementById("chapterOne");
 const story = document.getElementById("storyScene");
-const hero = document.querySelector(".hero");
 
+const reveals = document.querySelectorAll(".reveal");
+
+// ---------- First Sunrise → Confession ----------
 chapter.addEventListener("click", () => {
 
-    // Play First Sunrise exit animation
+    // Prevent double clicking
+    chapter.style.pointerEvents = "none";
+
     chapter.classList.add("moveAway");
 
     setTimeout(() => {
 
-        // Remove the chapter completely
-        chapter.style.display = "none";
+        chapter.remove();                  // Remove fixed layer completely
 
-        // Remove the invisible hero from layout
-        if(hero){
-            hero.style.display = "none";
-        }
+        story.classList.add("show");       // Show confession
 
-        // Reveal the confession page
-        story.classList.add("show");
-
-        // Scroll exactly to confession
         story.scrollIntoView({
             behavior: "smooth",
             block: "start"
@@ -28,17 +24,15 @@ chapter.addEventListener("click", () => {
 
     }, 1200);
 
-});
+}, { once: true });
 
 
-// Paragraph reveal animation
-const reveals = document.querySelectorAll(".reveal");
-
+// ---------- Paragraph Reveal ----------
 const observer = new IntersectionObserver((entries) => {
 
     entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
             entry.target.classList.add("show");
             observer.unobserve(entry.target);
@@ -47,8 +41,6 @@ const observer = new IntersectionObserver((entries) => {
 
     });
 
-},{
-    threshold: 0.2
-});
+}, { threshold: 0.18 });
 
-reveals.forEach(el => observer.observe(el));
+reveals.forEach(p => observer.observe(p));
