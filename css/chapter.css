@@ -277,7 +277,9 @@ MOVE TO STORY
     justify-content:center;
     align-items:flex-start;
 
-    padding:140px 25px 120px;
+    padding:120px 28px;
+
+    overflow-y:auto;
 
     opacity:0;
     visibility:hidden;
@@ -294,6 +296,7 @@ MOVE TO STORY
 
     opacity:1;
     visibility:visible;
+
     transform:translateY(0);
 
 }
