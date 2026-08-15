@@ -1,7 +1,6 @@
 const chapter = document.getElementById("chapterOne");
 const story = document.getElementById("storyScene");
 
-// Chapter → Confession
 chapter.addEventListener("click", () => {
 
     chapter.classList.add("moveAway");
@@ -11,11 +10,16 @@ chapter.addEventListener("click", () => {
         chapter.style.display = "none";
         story.classList.add("show");
 
+        // Jump to the confession page
+        story.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
     }, 1200);
 
 });
 
-// Paragraph reveal
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver((entries) => {
@@ -30,8 +34,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 
 }, {
-    threshold: 0.15,
-    rootMargin: "0px 0px -80px 0px"
+    threshold: 0.15
 });
 
 reveals.forEach(el => observer.observe(el));
