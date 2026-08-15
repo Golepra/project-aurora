@@ -184,6 +184,8 @@
 
 #storyScene{
     position: relative;
+    z-index: 2;
+
     width: 100%;
     min-height: 100vh;
 
@@ -192,8 +194,6 @@
     align-items: flex-start;
 
     padding: 120px 28px 180px;
-
-    overflow: visible;
 
     opacity: 0;
     visibility: hidden;
