@@ -1,44 +1,54 @@
 const chapter = document.getElementById("chapterOne");
 const story = document.getElementById("storyScene");
+const hero = document.querySelector(".hero");
 
-// Click anywhere on Chapter One
 chapter.addEventListener("click", () => {
 
-    // Play the exit animation
+    // Play First Sunrise exit animation
     chapter.classList.add("moveAway");
 
     setTimeout(() => {
 
-        // Hide the chapter
+        // Remove the chapter completely
         chapter.style.display = "none";
+
+        // Remove the invisible hero from layout
+        if(hero){
+            hero.style.display = "none";
+        }
 
         // Reveal the confession page
         story.classList.add("show");
 
-        // Start at the top
-        window.scrollTo({
-            top: story.offsetTop,
-            behavior: "smooth"
+        // Scroll exactly to confession
+        story.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
 
-    }, 1000);
+    }, 1200);
 
 });
 
-// Paragraph reveal
+
+// Paragraph reveal animation
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver((entries) => {
 
     entries.forEach(entry => {
 
-        if (entry.isIntersecting) {
+        if(entry.isIntersecting){
+
             entry.target.classList.add("show");
             observer.unobserve(entry.target);
+
         }
 
     });
 
-}, { threshold: 0.2 });
+},{
+    threshold: 0.2
+});
 
 reveals.forEach(el => observer.observe(el));
