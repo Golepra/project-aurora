@@ -23,22 +23,22 @@ chapter.addEventListener("click", () => {
 });
 const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries) => {
 
-    entries.forEach(entry=>{
+    entries.forEach(entry => {
 
         if(entry.isIntersecting){
 
             entry.target.classList.add("show");
-
             observer.unobserve(entry.target);
 
         }
 
     });
 
-},{
-    threshold:0.6
+}, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -80px 0px"
 });
 
-reveals.forEach(el=>observer.observe(el));
+reveals.forEach(p => observer.observe(p));
