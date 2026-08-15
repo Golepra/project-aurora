@@ -31,12 +31,14 @@ const observer = new IntersectionObserver((entries)=>{
 
             entry.target.classList.add("show");
 
+            observer.unobserve(entry.target);
+
         }
 
     });
 
 },{
-    threshold:0.35
+    threshold:0.6
 });
 
 reveals.forEach(el=>observer.observe(el));
