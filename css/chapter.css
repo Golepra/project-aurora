@@ -183,26 +183,18 @@
 =========================================== */
 
 #storyScene{
-    position: relative;
-    z-index: 2;
+    display:none;
 
-    width: 100%;
-    min-height: 100vh;
+    width:100%;
+    min-height:100vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content:center;
+    align-items:flex-start;
 
-    padding: 120px 28px 180px;
-display: none;
-opacity: 1;
-visibility: visible;
+    padding:120px 28px 180px;
 
-    transform: translateY(60px);
-
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
+    position:relative;
+    z-index:2;
 }
 
 #storyScene.show{
