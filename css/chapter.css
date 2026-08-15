@@ -194,9 +194,9 @@
     align-items: flex-start;
 
     padding: 120px 28px 180px;
-
-    opacity: 0;
-    visibility: hidden;
+display: none;
+opacity: 1;
+visibility: visible;
 
     transform: translateY(60px);
 
@@ -206,9 +206,7 @@
 }
 
 #storyScene.show{
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    display:flex;
 }
 
 .storyContainer{
