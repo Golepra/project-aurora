@@ -184,7 +184,6 @@
 
 #storyScene{
     position: relative;
-
     width: 100%;
     min-height: 100vh;
 
@@ -194,7 +193,8 @@
 
     padding: 120px 28px 180px;
 
-    overflow: visible;      /* <-- IMPORTANT */
+    overflow: visible;
+
     opacity: 0;
     visibility: hidden;
 
