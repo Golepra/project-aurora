@@ -183,16 +183,18 @@
 =========================================== */
 
 #storyScene{
+    position: relative;
+
+    width: 100%;
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: flex-start;
 
-    padding: 120px 28px;
+    padding: 120px 28px 180px;
 
-    overflow-y: auto;
-
+    overflow: visible;      /* <-- IMPORTANT */
     opacity: 0;
     visibility: hidden;
 
