@@ -280,15 +280,21 @@ MOVE TO STORY
     padding:120px 25px;
 
     opacity:0;
+    visibility:hidden;
+
     transform:translateY(80px);
 
-    transition:1.2s ease;
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 
 }
 
 #storyScene.show{
 
     opacity:1;
+    visibility:visible;
+
     transform:translateY(0);
 
 }
