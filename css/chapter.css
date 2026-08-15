@@ -388,9 +388,9 @@ MOVE TO STORY
 
     opacity:0;
 
-    transform:translateY(35px);
+    transform:translateY(40px);
 
-    filter:blur(8px);
+    filter:blur(10px);
 
     transition:
         opacity .9s ease,
