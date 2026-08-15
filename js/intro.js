@@ -2,7 +2,7 @@ console.log("intro.js loaded");
 
 const titleElement = document.getElementById("title");
 
-const text = "PROJECT AURORA";
+const text = "PROJECT REUNION";
 
 let currentIndex = 0;
 
