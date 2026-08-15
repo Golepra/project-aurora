@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT AURORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/letter.css">
+    <link rel="stylesheet" href="css/chapter.css">
+    
+</head>
+
+<body>
+
+    <!-- Background -->
+
+    <canvas id="starCanvas"></canvas>
+
+    <div class="nebula"></div>
+
+    <div class="moon"></div>
+
+
+    <!-- ==========================
+         HERO
+    =========================== -->
+
+    <div class="hero">
+
+        <h1 id="title"></h1>
+
+        <p>
+            Every story deserves one more sunrise.
+        </p>
+
+        <button id="startBtn">
+            Begin Journey
+        </button>
+
+    </div>
+
+
+    <!-- Transition Overlay -->
+
+    <div id="transitionOverlay"></div>
+
+
+
+    <!-- ==========================
+         LETTER SCENE
+    =========================== -->
+
+    <div id="letterScene">
+
+        <div class="ambientGlow"></div>
+
+        <div class="letterContainer">
+
+            <div class="letter">
+
+               <p class="letterDate" id="letterDate"></p>
+                <h1 class="letterHeading">
+                    For You
+                </h1>
+
+                <div class="paper">
+
+                    <p id="typedText"></p>
+
+                </div>
+
+                <button id="continueBtn">
+                    Continue →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================
+         CHAPTER ONE
+    =========================== -->
+
+    <div id="chapterOne">
+
+        <div class="chapterGlow"></div>
+
+        <p class="chapterNumber">
+            Chapter One
+        </p>
+
+        <h1 class="chapterTitle">
+            The First Sunrise
+        </h1>
+
+        <p class="chapterSubtitle">
+            Every ending quietly prepares the beginning of another story.
+        </p>
+
+        <div class="chapterDivider"></div>
+
+        <p class="continueHint">
+            Click anywhere to continue
+        </p>
+
+    </div>
+
+
+
+    <!-- ==========================
+         SCRIPTS
+    =========================== -->
+
+    <script src="script.js"></script>
+
+    <script src="js/intro.js"></script>
+
+    <script src="js/transition.js"></script>
+
+    <script src="js/letter.js"></script>
+
+    <script src="js/chapter.js"></script>
+
+</body>
+</html>

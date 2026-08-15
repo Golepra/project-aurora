@@ -1,0 +1,520 @@
+/* ===========================================
+   LETTER SCENE
+=========================================== */
+
+#letterScene{
+
+position:fixed;
+inset:0;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:#000;
+
+opacity:0;
+visibility:hidden;
+
+pointer-events:none;
+
+transition:.8s;
+
+z-index:9999;
+
+}
+
+#letterScene.show{
+
+opacity:1;
+visibility:visible;
+pointer-events:auto;
+
+}
+
+#letterScene.hide{
+
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+
+}
+
+/* ===========================================
+   GOLDEN GLOW
+=========================================== */
+
+.ambientGlow{
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+
+        circle,
+
+        rgba(255,225,150,.95) 0%,
+
+        rgba(255,210,110,.45) 35%,
+
+        rgba(255,190,70,.15) 60%,
+
+        transparent 80%
+
+    );
+
+    filter:blur(55px);
+
+    transform:scale(.85);
+
+    opacity:.55;
+
+    transition:
+        transform 1.4s ease,
+        opacity 1.4s ease,
+        filter 1.4s ease;
+
+}
+
+
+/* ===========================================
+   LETTER
+=========================================== */
+
+.letter{
+
+position:relative;
+
+width:min(680px,92vw);
+max-height:88vh;
+
+background:#fdfaf1;
+
+border-radius:18px;
+
+padding:40px 45px;
+
+display:flex;
+flex-direction:column;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.35);
+
+animation:paperEntrance 1.3s cubic-bezier(.22,1,.36,1);
+
+}
+@keyframes paperEntrance{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(140px)
+            scale(.82)
+            rotate(-8deg);
+
+        filter:blur(8px);
+
+    }
+
+    35%{
+
+        opacity:.7;
+
+        transform:
+            translateY(35px)
+            scale(.94)
+            rotate(-3deg);
+
+        filter:blur(2px);
+
+    }
+
+    70%{
+
+        opacity:1;
+
+        transform:
+            translateY(-8px)
+            scale(1.02)
+            rotate(.6deg);
+
+        filter:blur(0);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0deg);
+
+        filter:blur(0);
+
+    }
+    
+
+}
+.letter:hover{
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18),
+        0 60px 140px rgba(0,0,0,.32);
+
+}
+.paper{
+
+    transform-style:preserve-3d;
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+
+}
+.paper:hover{
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.18);
+
+}
+.letter.leave{
+
+animation:paperLeave 1.3s forwards;
+
+}
+
+@keyframes paperLeave{
+
+0%{
+
+opacity:1;
+transform:translateY(0) scale(1);
+
+}
+
+100%{
+
+opacity:0;
+transform:translateY(-220px) scale(.82) rotate(4deg);
+
+filter:blur(10px);
+
+}
+
+}
+/* ===========================================
+   PAPER TEXTURE
+=========================================== */
+
+.paper{
+
+    position:relative;
+
+    flex:1;
+
+    min-height:0;
+
+    margin-top:18px;
+
+    padding:70px;
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        180deg,
+        #fffefb,
+        #f8f2e8
+    );
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    box-shadow:
+        inset 0 0 25px rgba(0,0,0,.05);
+
+}
+.paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    repeating-linear-gradient(
+
+        transparent 0px,
+
+        transparent 27px,
+
+        rgba(0,0,0,.045) 28px
+
+    );
+
+}
+
+/* ===========================================
+   TYPOGRAPHY
+=========================================== */
+
+.letterDate{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:18px;
+
+    color:#7d7469;
+
+    margin-bottom:6px;
+
+}
+
+.letterHeading{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:60px;
+
+    font-weight:600;
+
+    color:#222;
+
+    margin-bottom:12px;
+
+}
+#typedText{
+
+    position:relative;
+
+    z-index:2;
+
+    white-space:pre-wrap;
+
+    line-height:1.75;
+
+    font-size:29px;
+
+    color:#2b2b2b;
+
+    font-family:"Caveat",cursive;
+
+    letter-spacing:.3px;
+
+}
+
+/* ===========================================
+   BUTTON
+=========================================== */
+#continueBtn{
+
+
+    display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+    width:fit-content;
+
+    padding:18px;
+
+    margin-top:22px;
+
+    margin:22px auto 0;
+
+    border:none;
+
+    padding:16px 36px;
+border-radius:999px;
+
+    background:#1f1f1f;
+
+    color:#fff;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:translateY(20px);
+
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
+
+}
+#continueBtn:hover{
+
+    transform:translateY(-3px);
+
+    background:#000;
+
+}
+.paper::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.paper::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+.paper::-webkit-scrollbar-thumb{
+
+    background:#d3b27b;
+
+    border-radius:50px;
+
+}
+
+.paper::-webkit-scrollbar-thumb:hover{
+
+    background:#b89155;
+
+}
+#typedText::after{
+
+    content:"|";
+
+    margin-left:2px;
+
+    animation:blink .8s infinite;
+
+    color:#444;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================================
+   ANIMATION
+=========================================== */
+
+@keyframes glowPulse{
+
+    0%{
+
+        transform:scale(.92);
+
+        opacity:.65;
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.92);
+
+        opacity:.65;
+
+    }
+
+}
+@media (max-width:768px){
+
+    .letter{
+
+        width:95vw;
+
+        height:90vh;
+
+        padding:25px;
+
+        border-radius:15px;
+
+    }
+
+    .paper{
+
+        padding:22px;
+
+    }
+
+    .letterHeading{
+
+        font-size:42px;
+
+    }
+
+    #typedText{
+
+        font-size:22px;
+
+        line-height:1.5;
+
+    }
+
+    #continueBtn{
+
+        width:100%;
+
+        margin-top:18px;
+
+    }
+
+}
+/* ===========================================
+   LETTER EXIT
+=========================================== */
+
+@keyframes paperLeave{
+
+    from{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0deg);
+
+        filter:blur(0);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+            translateY(-180px)
+            scale(.82)
+            rotate(6deg);
+
+        filter:blur(10px);
+
+    }
+
+}
