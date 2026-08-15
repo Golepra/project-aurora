@@ -187,6 +187,7 @@
 
     width:100%;
     min-height:100vh;
+    height:auto;
 
     justify-content:center;
     align-items:flex-start;
@@ -195,12 +196,14 @@
 
     position:relative;
     z-index:2;
+
+    overflow:visible;
+    box-sizing:border-box;
 }
 
 #storyScene.show{
     display:flex;
 }
-
 .storyContainer{
     width: min(760px, 92vw);
 }
