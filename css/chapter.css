@@ -275,14 +275,14 @@ MOVE TO STORY
 
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
 
-    padding:120px 25px;
+    padding:140px 25px 120px;
 
     opacity:0;
     visibility:hidden;
 
-    transform:translateY(80px);
+    transform:translateY(60px);
 
     transition:
         opacity 1s ease,
@@ -294,7 +294,6 @@ MOVE TO STORY
 
     opacity:1;
     visibility:visible;
-
     transform:translateY(0);
 
 }
