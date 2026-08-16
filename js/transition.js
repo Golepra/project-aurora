@@ -4,24 +4,26 @@ const hero = document.querySelector(".hero");
 const overlay = document.getElementById("transitionOverlay");
 const letterScene = document.getElementById("letterScene");
 
-startBtn.addEventListener("click",()=>{
+startBtn.addEventListener("click", () => {
 
     hero.classList.add("exit");
-
     overlay.classList.add("active");
 
-setTimeout(() => {
+    setTimeout(() => {
 
-    // Remove the hero from the page completely
-    hero.style.display = "none";
+        // Remove hero
+        hero.style.display = "none";
 
-    // Show the letter
-    letterScene.classList.add("show");
+        // Show letter
+        letterScene.classList.add("show");
 
-    if(typeof startTyping === "function"){
-        startTyping();
-    }
+        // REMOVE the black overlay
+        overlay.classList.remove("active");
 
-}, 900);
+        if (typeof startTyping === "function") {
+            startTyping();
+        }
+
+    }, 900);
 
 });
