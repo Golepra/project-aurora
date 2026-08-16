@@ -1,6 +1,5 @@
 const chapter = document.getElementById("chapterOne");
 const story = document.getElementById("storyScene");
-
 chapter.addEventListener("click", () => {
 
     chapter.style.pointerEvents = "none";
@@ -8,22 +7,12 @@ chapter.addEventListener("click", () => {
 
     setTimeout(() => {
 
-        // Remove First Sunrise
         chapter.style.display = "none";
 
-        // Force confession to exist in layout
-        story.style.display = "flex";
+        story.classList.add("show");
 
-        requestAnimationFrame(() => {
-
-            story.classList.add("show");
-
-            window.scrollTo({
-                top: story.offsetTop,
-                behavior: "auto"
-            });
-
-        });
+        // Always start from the top of the confession
+        story.scrollTop = 0;
 
     }, 1200);
 
