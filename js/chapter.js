@@ -7,11 +7,10 @@ chapter.addEventListener("click", () => {
 
     setTimeout(() => {
 
-        chapter.style.display = "none";
+        chapter.remove();
 
         story.classList.add("show");
 
-        // Always start from the top of the confession
         story.scrollTop = 0;
 
     }, 1200);
