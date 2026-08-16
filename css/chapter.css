@@ -181,33 +181,28 @@
 /* ===========================================
    CONFESSION PAGE
 =========================================== */
-
 #storyScene{
-    display:none;
+    display: none;
 
-    width:100%;
-    min-height:100vh;
-    height:auto;
+    width: 100%;
+    min-height: 100vh;
 
-    justify-content:center;
-    align-items:flex-start;
+    justify-content: center;
+    align-items: flex-start;
 
-    padding:120px 28px 180px;
+    padding: 110px 28px 180px;
 
-    position:relative;
-    z-index:2;
-
-    overflow:visible;
-    box-sizing:border-box;
+    position: relative;
+    z-index: 2;
 }
 
 #storyScene.show{
-    display:flex;
+    display: flex;
 }
 .storyContainer{
     width: min(760px, 92vw);
+    text-align: center;
 }
-
 /* ===========================================
    CONFESSION TITLE
 =========================================== */
@@ -251,19 +246,24 @@
 .storyBody{
     display: flex;
     flex-direction: column;
-    gap: 34px;
+    align-items: center;
+    gap: 42px;
+
+    margin-top: 40px;
 }
 
 .storyBody p{
     font-family: "Caveat", cursive;
 
     font-size: 36px;
-
     line-height: 1.75;
 
     color: #F3EFE7;
 
-    letter-spacing: .3px;
+    max-width: 680px;
+    text-align: center;
+
+    letter-spacing: .25px;
 }
 
 .finalConfession{
@@ -274,15 +274,14 @@
 .signatureText{
     font-family: "Parisienne", cursive;
 
-    font-size: 46px;
+    font-size: 44px;
 
     color: #D9BC7C;
 
-    text-align: right;
+    text-align: center;
 
-    margin-top: 12px;
+    margin-top: 18px;
 }
-
 /* ===========================================
    PARAGRAPH REVEAL
 =========================================== */
