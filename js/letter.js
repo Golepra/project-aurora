@@ -45,7 +45,7 @@ Maybe...
 
 this is simply another page.
 
-Welcome to Project Aurora.`;
+Welcome to Project Reunion.`;
 
 let index = 0;
 let typingStarted = false;
@@ -136,11 +136,13 @@ continueBtn.addEventListener("click", () => {
     setTimeout(() => {
 
         // Remove letter completely
-        scene.remove();
+       scene.remove();
 
-        // Force First Sunrise to appear
-        chapter.style.display = "flex";
-        chapter.classList.add("show");
+const overlay = document.getElementById("transitionOverlay");
+overlay.style.display = "none";      // <-- Add this line
+
+chapter.style.display = "flex";
+chapter.classList.add("show");
 
     }, 1000);
 
