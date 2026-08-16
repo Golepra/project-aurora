@@ -1,10 +1,6 @@
 const chapter = document.getElementById("chapterOne");
 const story = document.getElementById("storyScene");
 
-// ==========================================
-// Chapter One → Confession
-// ==========================================
-
 chapter.addEventListener("click", () => {
 
     chapter.style.pointerEvents = "none";
@@ -12,15 +8,21 @@ chapter.addEventListener("click", () => {
 
     setTimeout(() => {
 
+        // Remove First Sunrise
         chapter.style.display = "none";
-        story.classList.add("show");
 
-        // Mobile-safe jump to the confession
+        // Force confession to exist in layout
+        story.style.display = "flex";
+
         requestAnimationFrame(() => {
-            story.scrollIntoView({
-                block: "start",
+
+            story.classList.add("show");
+
+            window.scrollTo({
+                top: story.offsetTop,
                 behavior: "auto"
             });
+
         });
 
     }, 1200);
@@ -28,10 +30,7 @@ chapter.addEventListener("click", () => {
 }, { once: true });
 
 
-// ==========================================
-// Paragraph Reveal
-// ==========================================
-
+// Reveal paragraphs while scrolling
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver((entries) => {
@@ -39,17 +38,14 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
 
         if (entry.isIntersecting) {
-
             entry.target.classList.add("show");
             observer.unobserve(entry.target);
-
         }
 
     });
 
 }, {
-    threshold: 0.18,
-    rootMargin: "0px 0px -60px 0px"
+    threshold: 0.18
 });
 
 reveals.forEach(el => observer.observe(el));
