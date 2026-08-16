@@ -16,10 +16,10 @@ chapter.addEventListener("click", () => {
 
         story.classList.add("show");
 
-        story.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
+    window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
 
     }, 1200);
 
