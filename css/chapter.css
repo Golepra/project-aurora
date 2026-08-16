@@ -202,8 +202,14 @@
     display: flex;
 }
 .storyContainer{
-    width: min(760px, 92vw);
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+    padding: 0 16px;
+
     text-align: center;
+    box-sizing: border-box;
 }
 /* ===========================================
    CONFESSION TITLE
@@ -257,17 +263,23 @@
 .storyBody p{
     font-family: "Caveat", cursive;
 
+    width: 100%;
+    max-width: 680px;
+
     font-size: 36px;
     line-height: 1.75;
 
     color: #F3EFE7;
 
-    max-width: 680px;
     text-align: center;
-
     letter-spacing: .25px;
-}
 
+    margin: 0 auto;
+
+    overflow-wrap: break-word;
+    word-break: normal;
+    box-sizing: border-box;
+}
 .finalConfession{
     color: #FFF5D8;
     font-size: 42px;
