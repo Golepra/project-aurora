@@ -7,11 +7,7 @@ if (letterDate) {
     const today = new Date();
 
     const day = today.getDate();
-
-    const month = today.toLocaleString("en-US", {
-        month: "long"
-    });
-
+    const month = today.toLocaleString("en-US", { month: "long" });
     const year = today.getFullYear();
 
     function getOrdinal(day){
@@ -19,19 +15,15 @@ if (letterDate) {
         if(day > 3 && day < 21) return "th";
 
         switch(day % 10){
-
             case 1: return "st";
             case 2: return "nd";
             case 3: return "rd";
             default: return "th";
-
         }
 
     }
 
-    letterDate.textContent =
-        `${day}${getOrdinal(day)} ${month} ${year}`;
-
+    letterDate.textContent = `${day}${getOrdinal(day)} ${month} ${year}`;
 }
 
 const message = `Every story deserves one more sunrise.
@@ -63,7 +55,6 @@ function startTyping(){
     if(typingStarted) return;
 
     typingStarted = true;
-
     index = 0;
 
     typedText.textContent = "";
@@ -79,7 +70,6 @@ function startTyping(){
         finished = true;
 
         index = message.length;
-
         typedText.textContent = message;
 
         if(paper){
@@ -89,11 +79,9 @@ function startTyping(){
         continueBtn.style.display = "flex";
 
         requestAnimationFrame(() => {
-
             continueBtn.style.opacity = "1";
             continueBtn.style.pointerEvents = "auto";
             continueBtn.style.transform = "translateY(0)";
-
         });
 
     }
@@ -105,15 +93,13 @@ function startTyping(){
         if(index < message.length){
 
             typedText.textContent += message.charAt(index);
-
             index++;
 
             if(paper){
                 paper.scrollTop = paper.scrollHeight;
             }
 
-            // Slower typing speed
-            setTimeout(type, 55);
+            setTimeout(type,55);
 
         }else{
 
@@ -123,59 +109,43 @@ function startTyping(){
 
     }
 
-    // Tap/click anywhere on the paper to skip typing
     if(paper){
-
-        paper.addEventListener(
-            "click",
-            finishTyping,
-            { once:true }
-        );
-
+        paper.addEventListener("click", finishTyping, { once:true });
     }
 
     type();
-
 }
 
+
 /* ===========================================
-   CONTINUE BUTTON
+   CONTINUE BUTTON  (FIXED)
 =========================================== */
 
-continueBtn.addEventListener("click",()=>{
+continueBtn.addEventListener("click", () => {
 
     const scene = document.getElementById("letterScene");
     const letter = document.querySelector(".letter");
     const glow = document.querySelector(".ambientGlow");
+    const chapter = document.getElementById("chapterOne");
 
     continueBtn.style.pointerEvents = "none";
-    continueBtn.style.opacity = "0";
 
     glow.classList.add("expand");
-
-    letter.style.animation = "none";
     letter.classList.add("dissolve");
 
-    // Immediately reveal what's behind
-    scene.style.pointerEvents = "none";
+    setTimeout(() => {
 
-    setTimeout(()=>{
+        // Remove letter completely
+        scene.remove();
 
-        scene.style.opacity = "0";
+        // Force First Sunrise to appear
+        chapter.style.display = "flex";
+        chapter.classList.add("show");
 
-    },200);
-
-    setTimeout(()=>{
-
-        scene.style.display = "none";
-
-        document
-            .getElementById("chapterOne")
-            .classList.add("show");
-
-    },1000);
+    }, 1000);
 
 });
+
 
 /* ===========================================
    PAPER PARALLAX
