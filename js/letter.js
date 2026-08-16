@@ -26,7 +26,7 @@ if (letterDate) {
     letterDate.textContent = `${day}${getOrdinal(day)} ${month} ${year}`;
 }
 
-const message = `Every story deserves one more sunrise.
+const message = `I think every story deserves one more sunrise.
 
 If you're reading this,
 
@@ -35,7 +35,7 @@ then somehow, after everything...
 you still chose to continue.
 
 Life has a strange way of taking things away,
-only to return them when we're finally ready.
+only to return them in a very unexpected way.
 
 Maybe this isn't the beginning.
 
