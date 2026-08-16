@@ -193,17 +193,10 @@
     align-items: flex-start;
 
     padding: 120px 28px 180px;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transition: opacity .8s ease;
 }
 
 #storyScene.show{
     display: flex;
-    opacity: 1;
-    visibility: visible;
 }
 .storyContainer{
     width: min(760px, 92vw);
