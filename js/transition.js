@@ -10,17 +10,18 @@ startBtn.addEventListener("click",()=>{
 
     overlay.classList.add("active");
 
-    setTimeout(()=>{
+setTimeout(() => {
 
-        letterScene.classList.add("show");
+    // Remove the hero from the page completely
+    hero.style.display = "none";
 
-        // Fade the black overlay back out
-        overlay.style.opacity = "0";
+    // Show the letter
+    letterScene.classList.add("show");
 
-        if(typeof startTyping==="function"){
-            startTyping();
-        }
+    if(typeof startTyping === "function"){
+        startTyping();
+    }
 
-    },900);
+}, 900);
 
 });
