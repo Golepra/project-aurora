@@ -13,13 +13,15 @@ chapter.addEventListener("click", () => {
     setTimeout(() => {
 
         chapter.style.display = "none";
-
         story.classList.add("show");
 
-    window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-});
+        // Mobile-safe jump to the confession
+        requestAnimationFrame(() => {
+            story.scrollIntoView({
+                block: "start",
+                behavior: "auto"
+            });
+        });
 
     }, 1200);
 
