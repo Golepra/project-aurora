@@ -202,14 +202,11 @@
     display: flex;
 }
 .storyContainer{
-    width: 100%;
-    max-width: 760px;
-
+    width: min(100%, 760px);
     margin: 0 auto;
-    padding: 0 16px;
-
-    text-align: center;
+    padding-inline: clamp(18px, 5vw, 40px);
     box-sizing: border-box;
+    text-align: center;
 }
 /* ===========================================
    CONFESSION TITLE
@@ -264,20 +261,17 @@
     font-family: "Caveat", cursive;
 
     width: 100%;
-    max-width: 680px;
+    max-width: 100%;
 
-    font-size: 36px;
-    line-height: 1.75;
+    font-size: clamp(28px, 3vw, 36px);
+    line-height: 1.8;
 
     color: #F3EFE7;
 
     text-align: center;
     letter-spacing: .25px;
 
-    margin: 0 auto;
-
-    overflow-wrap: break-word;
-    word-break: normal;
+    overflow-wrap: anywhere;
     box-sizing: border-box;
 }
 .finalConfession{
@@ -324,15 +318,6 @@
 =========================================== */
 
 @media (max-width:768px){
-
-    .confessionTitle{
-        font-size: 58px;
-    }
-
-    .storyBody p{
-        font-size: 29px;
-        line-height: 1.7;
-    }
 
     .finalConfession{
         font-size: 34px;
